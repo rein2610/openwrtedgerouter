@@ -304,7 +304,7 @@ define Device/u7621-06-256M-16M
 endef
 TARGET_DEVICES += u7621-06-256M-16M
 
-define Device/ubnt-erx
+define Device/ubnt_edgerouter-x
   DTS := UBNT-ERX
   FILESYSTEMS := squashfs
   KERNEL_SIZE := 3145728
@@ -314,15 +314,15 @@ define Device/ubnt-erx
   IMAGE/sysupgrade.tar := sysupgrade-tar | append-metadata
   DEVICE_TITLE := Ubiquiti EdgeRouter X
 endef
-TARGET_DEVICES += ubnt-erx
+TARGET_DEVICES += ubnt_edgerouter-x
 
-define Device/ubnt-erx-sfp
-  $(Device/ubnt-erx)
+define Device/ubnt_edgerouter-x-sfp
+  $(Device/ubnt_edgerouter-x)
   DTS := UBNT-ERX-SFP
   DEVICE_TITLE := Ubiquiti EdgeRouter X-SFP
   DEVICE_PACKAGES += kmod-i2c-algo-pca kmod-gpio-pca953x kmod-i2c-gpio-custom
 endef
-TARGET_DEVICES += ubnt-erx-sfp
+TARGET_DEVICES += ubnt_edgerouter-x-sfp
 
 define Device/vr500
   DTS := VR500

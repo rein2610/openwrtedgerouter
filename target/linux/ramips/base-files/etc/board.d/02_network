@@ -208,8 +208,8 @@ ramips_setup_interfaces()
 	tl-wr840n-v5|\
 	tl-wr841n-v13|\
 	u7628-01-128M-16M|\
-	ubnt-erx|\
-	ubnt-erx-sfp|\
+	ubnt,edgerouter-x|\
+	ubnt,edgerouter-x-sfp|\
 	ur-326n4g|\
 	wrtnode|\
 	wrtnode2p | \

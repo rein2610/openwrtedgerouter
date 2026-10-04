@@ -5,8 +5,8 @@
 #include <dt-bindings/gpio/gpio.h>
 
 / {
-	model = "UBNT-ERX-SFP";
-	compatible = "ubiquiti,edgerouterx-sfp", "mediatek,mt7621-soc";
+	model = "Ubiquiti EdgeRouter X SFP";
+	compatible = "ubnt,edgerouter-x-sfp", "mediatek,mt7621-soc";
 
 	i2c-gpio {
 		compatible = "i2c-gpio";

@@ -7,10 +7,10 @@ board_config_update
 board=$(board_name)
 
 case "$board" in
-ubnt-erx)
+ubnt,edgerouter-x)
 	ucidef_add_gpio_switch "poe_passthrough" "PoE Passthrough" "0"
 	;;
-ubnt-erx-sfp)
+ubnt,edgerouter-x-sfp)
 	ucidef_add_gpio_switch "poe_power_port0" "PoE Power Port0" "496"
 	ucidef_add_gpio_switch "poe_power_port1" "PoE Power Port1" "497"
 	ucidef_add_gpio_switch "poe_power_port2" "PoE Power Port2" "498"
