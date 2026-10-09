@@ -1,6 +1,6 @@
 CONFIG_TARGET_ramips=y
 CONFIG_TARGET_ramips_mt7621=y
-CONFIG_TARGET_ramips_mt7621_DEVICE_ubnt_edgerouter-x-sfp=y
+CONFIG_TARGET_ramips_mt7621_DEVICE_ubnt_edgerouter-x=y
 # CONFIG_IPV6 is not set
 # CONFIG_KERNEL_DEBUG_FS is not set
 # CONFIG_KERNEL_DEBUG_INFO is not set
@@ -9,6 +9,12 @@ CONFIG_TARGET_ramips_mt7621_DEVICE_ubnt_edgerouter-x-sfp=y
 # CONFIG_KERNEL_IPV6 is not set
 # CONFIG_KERNEL_KALLSYMS is not set
 CONFIG_LUCI_SRCDIET=y
+CONFIG_PACKAGE_kmod-gpio-pca953x=y
+CONFIG_PACKAGE_kmod-i2c-algo-bit=y
+CONFIG_PACKAGE_kmod-i2c-algo-pca=y
+CONFIG_PACKAGE_kmod-i2c-core=y
+CONFIG_PACKAGE_kmod-i2c-gpio=y
+CONFIG_PACKAGE_kmod-i2c-gpio-custom=y
 # CONFIG_PACKAGE_kmod-nf-ipt6 is not set
 # CONFIG_PACKAGE_libip6tc is not set
 CONFIG_PACKAGE_libiwinfo=y

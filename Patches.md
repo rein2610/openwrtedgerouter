@@ -49,7 +49,11 @@ This is needed to match with the naming in recent OpenWrt versions.
 
 #### `target/linux/ramips/dts/UBNT-ER-e50.dtsi`:
 Replaced 'ubnt-erx' with 'ubnt,edgerouter-x'.  
+Replaced 'ubiquiti,edgerouterx' with 'ubnt,edgerouter-x'.  
 This is needed to match with the naming in recent OpenWrt versions.
+
+### `target/linux/ramips/dts/UBNT-ERX.dts`:
+Replaced 'UBNT-ERX' with 'Ubiquiti EdgeRouter X'.
 
 ### To support the newer sysupgrade format of OpenWrt v24 and higher the following files are borrowed from OpenWrt v25.12.
 ```

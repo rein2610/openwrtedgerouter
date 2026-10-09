@@ -80,6 +80,29 @@ make -j$(nproc)
 
 ```
 
+# Output Ubiquiti EdgeRouter X (ER-X)
+```
+ ll bin/targets/ramips/mt7621/
+total 9196
+drwxr-xr-x 3 rein rein    4096 Oct  9 18:05 ./
+drwxr-xr-x 3 rein rein    4096 Oct  9 18:01 ../
+-rw-r--r-- 1 rein rein    1499 Oct  9 18:01 config.seed
+-rw-r--r-- 1 rein rein    2371 Oct  9 18:05 openwrt-edgerouter-upgrade-ramips-mt7621-device-ubnt-edgerouter-x.manifest
+-rw-r--r-- 1 rein rein 3112960 Oct  9 18:05 openwrt-edgerouter-upgrade-ramips-mt7621-ubnt_edgerouter-x-initramfs-factory.tar
+-rw-r--r-- 1 rein rein 3099229 Oct  9 18:05 openwrt-edgerouter-upgrade-ramips-mt7621-ubnt_edgerouter-x-initramfs-kernel.bin
+-rw-r--r-- 1 rein rein 3174591 Oct  9 18:05 openwrt-edgerouter-upgrade-ramips-mt7621-ubnt_edgerouter-x-squashfs-sysupgrade.tar
+drwxr-xr-x 2 rein rein    4096 Oct  9 18:05 packages/
+-rw-r--r-- 1 rein rein     661 Oct  9 18:05 sha256sums
+
+cat sha256sums
+304808e5d44dd428a87e530bd6c5a0ced9094d9bc3bb707eb611636e03118663 *config.seed
+c7165019de07b7cd3fbaca1341678fabd9f279fd00b44489c5dafcb71cf3cad2 *openwrt-edgerouter-upgrade-ramips-mt7621-device-ubnt-edgerouter-x.manifest
+e98d75272e7526cabf2fc8a79ba4b40d9599bc2c8e5471d3ceb1f7fc819b70e1 *openwrt-edgerouter-upgrade-ramips-mt7621-ubnt_edgerouter-x-initramfs-factory.tar
+5ea566a6513e848a70d3ebf0d04ee171c6050f8fc41c85e9765a875ffda4e81d *openwrt-edgerouter-upgrade-ramips-mt7621-ubnt_edgerouter-x-initramfs-kernel.bin
+f7ffac7569a0bac54f10fd7289149b4de381a674ddbb9665a3f5f01ca01d8d05 *openwrt-edgerouter-upgrade-ramips-mt7621-ubnt_edgerouter-x-squashfs-sysupgrade.tar
+
+```
+
 # Output Ubiquiti EdgeRouter X-SFP (ER-X-SFP)
 ```
 ll bin/targets/ramips/mt7621/

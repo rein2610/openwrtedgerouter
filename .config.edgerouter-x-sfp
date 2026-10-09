@@ -77,8 +77,8 @@ CONFIG_TARGET_ramips_mt7621=y
 # CONFIG_TARGET_ramips_mt7621_DEVICE_sk-wb8 is not set
 # CONFIG_TARGET_ramips_mt7621_DEVICE_re350-v1 is not set
 # CONFIG_TARGET_ramips_mt7621_DEVICE_timecloud is not set
-CONFIG_TARGET_ramips_mt7621_DEVICE_ubnt_edgerouter-x=y
-# CONFIG_TARGET_ramips_mt7621_DEVICE_ubnt_edgerouter-x-sfp is not set
+# CONFIG_TARGET_ramips_mt7621_DEVICE_ubnt_edgerouter-x is not set
+CONFIG_TARGET_ramips_mt7621_DEVICE_ubnt_edgerouter-x-sfp=y
 # CONFIG_TARGET_ramips_mt7621_DEVICE_u7621-06-256M-16M is not set
 # CONFIG_TARGET_ramips_mt7621_DEVICE_11acnas is not set
 # CONFIG_TARGET_ramips_mt7621_DEVICE_w2914nsv2 is not set
@@ -93,7 +93,7 @@ CONFIG_HAS_SUBTARGETS=y
 CONFIG_HAS_DEVICES=y
 CONFIG_TARGET_BOARD="ramips"
 CONFIG_TARGET_SUBTARGET="mt7621"
-CONFIG_TARGET_PROFILE="DEVICE_ubnt_edgerouter-x"
+CONFIG_TARGET_PROFILE="DEVICE_ubnt_edgerouter-x-sfp"
 CONFIG_TARGET_ARCH_PACKAGES="mipsel_24kc"
 CONFIG_DEFAULT_TARGET_OPTIMIZATION="-Os -pipe -mno-branch-likely -mips32r2 -mtune=24kc"
 CONFIG_CPU_TYPE="24kc"
@@ -107,6 +107,9 @@ CONFIG_DEFAULT_fstools=y
 CONFIG_DEFAULT_ip6tables=y
 CONFIG_DEFAULT_iptables=y
 CONFIG_DEFAULT_kmod-gpio-button-hotplug=y
+CONFIG_DEFAULT_kmod-gpio-pca953x=y
+CONFIG_DEFAULT_kmod-i2c-algo-pca=y
+CONFIG_DEFAULT_kmod-i2c-gpio-custom=y
 CONFIG_DEFAULT_kmod-ipt-offload=y
 CONFIG_DEFAULT_kmod-leds-gpio=y
 CONFIG_DEFAULT_libc=y

@@ -3,5 +3,5 @@
 #include "UBNT-ER-e50.dtsi"
 
 / {
-	model = "UBNT-ERX";
+	model = "Ubiquiti EdgeRouter X";
 };
