@@ -3,9 +3,9 @@ This version of OpenWrt is based on OpenWrt V18.06.9 with unnecessary functions 
 **Automatic conversion to 6MiB partition is build in!**
 
 # 3MiB limit
-In order not to exceed the 3MiB limit, this version is based on OpenWrt V18.06.9. Any higher version results in exceeding the 3MiB limit when Luci is included. The goal is this build is to make the installation of OpenWrt as easy as possible without the need for a USB to serial adapter. SSH is supported by this build, however it requires your SSH client to support for older Hostkey algorithm RSA/sha1.
+In order not to exceed the 3MiB limit, this version is based on OpenWrt V18.06.9. Any higher version results in exceeding the 3MiB limit when Luci is included. The purpose of is this build is to make the installation of OpenWrt as easy as possible without the need for a USB to serial adapter. SSH is supported by this build, however it requires your SSH client to support for older Hostkey algorithm RSA/sha1.
 
-See [Build Instructions.md](#Build%20Instructions.md)
+See [Build Instructions.md](#../Build%20Instructions.md)
 
 # Automatic conversion to 6MiB partition
 This is achieved by updating the dts for Ubiquiti EdgeRouter X (ER-X) and Ubiquiti EdgeRouter X-SFP (ER-X-SFP).
@@ -30,7 +30,7 @@ Replaced 'ubiquiti,edgerouterx-sfp' with 'ubnt,edgerouter-x-sfp'.
 Replaced 'ubnt-erx' with 'ubnt,edgerouter-x'.  
 This is needed to match with the naming in recent OpenWrt versions.  
 
-#### `ubiquiti,edgerouterx-sfp/ubnt,edgerouter-x-sfp`:
+#### `target/linux/ramips/image/mt7621.mk`:
 Replaced 'Device/ubnt-erx' with 'Device/ubnt_edgerouter-x'.  
 Replaced 'TARGET_DEVICES += ubnt-erx' with 'TARGET_DEVICES += ubnt_edgerouter-x'.  
 This is needed to match with the naming in recent OpenWrt versions.
@@ -75,3 +75,6 @@ Since the new firmware config (OpenWrt v24 and higher) is not compatible with v1
 
 #### `package/base-files/files/usr/libexec/validate_firmware_image`:
 Replaced 'ALLOW_BACKUP=1' with 'ALLOW_BACKUP=0'. There is no need to back up the old configuration.
+
+> [!NOTE]
+> Above pathes are already applied to this repository.

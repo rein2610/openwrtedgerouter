@@ -1,0 +1,5 @@
+e0d19115d51a84961074223115aa722cea98580b39eef1d57747c37263e8bf4c *config.seed
+c7165019de07b7cd3fbaca1341678fabd9f279fd00b44489c5dafcb71cf3cad2 *openwrt-edgerouter-upgrade-ramips-mt7621-device-ubnt-edgerouter-x-sfp.manifest
+4c8af40206a85c0246ea97c67464207c75b8aa36e718a334ed6c3317f4a84ed2 *openwrt-edgerouter-upgrade-ramips-mt7621-ubnt_edgerouter-x-sfp-initramfs-factory.tar
+d2910af5dcaf4c0efcb6560f72715d84e1f060237c44a9b37895480cb39e9bd2 *openwrt-edgerouter-upgrade-ramips-mt7621-ubnt_edgerouter-x-sfp-initramfs-kernel.bin
+d76ee0b794fe77d3ad65b8fa13853c20cbb85f67711587d763be5bb43bf8e48b *openwrt-edgerouter-upgrade-ramips-mt7621-ubnt_edgerouter-x-sfp-squashfs-sysupgrade.tar

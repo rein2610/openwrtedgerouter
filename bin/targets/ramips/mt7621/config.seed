@@ -1,0 +1,41 @@
+CONFIG_TARGET_ramips=y
+CONFIG_TARGET_ramips_mt7621=y
+CONFIG_TARGET_ramips_mt7621_DEVICE_ubnt_edgerouter-x-sfp=y
+# CONFIG_IPV6 is not set
+# CONFIG_KERNEL_DEBUG_FS is not set
+# CONFIG_KERNEL_DEBUG_INFO is not set
+# CONFIG_KERNEL_DEBUG_KERNEL is not set
+# CONFIG_KERNEL_ELF_CORE is not set
+# CONFIG_KERNEL_IPV6 is not set
+# CONFIG_KERNEL_KALLSYMS is not set
+CONFIG_LUCI_SRCDIET=y
+# CONFIG_PACKAGE_kmod-nf-ipt6 is not set
+# CONFIG_PACKAGE_libip6tc is not set
+CONFIG_PACKAGE_libiwinfo=y
+CONFIG_PACKAGE_libiwinfo-lua=y
+CONFIG_PACKAGE_liblua=y
+CONFIG_PACKAGE_liblucihttp=y
+CONFIG_PACKAGE_liblucihttp-lua=y
+# CONFIG_PACKAGE_libpthread is not set
+CONFIG_PACKAGE_libubus-lua=y
+CONFIG_PACKAGE_lua=y
+CONFIG_PACKAGE_luci=y
+CONFIG_PACKAGE_luci-app-firewall=y
+CONFIG_PACKAGE_luci-base=y
+CONFIG_PACKAGE_luci-lib-ip=y
+CONFIG_PACKAGE_luci-lib-jsonc=y
+CONFIG_PACKAGE_luci-lib-nixio=y
+CONFIG_PACKAGE_luci-mod-admin-full=y
+CONFIG_PACKAGE_luci-proto-ppp=y
+CONFIG_PACKAGE_luci-theme-bootstrap=y
+CONFIG_PACKAGE_openssh-sftp-server=y
+# CONFIG_PACKAGE_opkg is not set
+CONFIG_PACKAGE_rpcd=y
+CONFIG_PACKAGE_rpcd-mod-rrdns=y
+CONFIG_PACKAGE_uhttpd=y
+# CONFIG_SIGNATURE_CHECK is not set
+# CONFIG_SIGNED_PACKAGES is not set
+CONFIG_STRIP_KERNEL_EXPORTS=y
+CONFIG_USE_MKLIBS=y
+CONFIG_PACKAGE_openwrt-keyring=y
+CONFIG_PACKAGE_usign=y

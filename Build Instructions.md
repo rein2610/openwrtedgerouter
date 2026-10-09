@@ -8,12 +8,14 @@ Based on ubuntu-20.04.2-live-server-amd64.iso.
 sudo apt update
 sudo apt install build-essential clang flex bison g++ gawk \
 gcc-multilib g++-multilib gettext git libncurses-dev libssl-dev python2 rsync swig unzip zlib1g-dev file wget
+
 ```
 
 ## Download
 
 ```
 git clone https://github.com/rein2610/openwrtedgerouter.git -b edgerouterupgrade
+
 ```
 
 ## Update the feeds
@@ -22,12 +24,14 @@ cd openwrtedgerouter
 ./scripts/feeds update -a
 ./scripts/feeds install -a
 make defconfig
+
 ```
 
 ## Configure the firmware image
 
 ```
 make menuconfig
+
 ```
 
 
@@ -67,25 +71,37 @@ Alternative: use the provided `.config`
 
 ```
 git restore .config
+
 ```
 
 # Build
 ```
 make -j$(nproc)
+
 ```
 
-# Output
+# Output Ubiquiti EdgeRouter X-SFP (ER-X-SFP)
 ```
-rein@ubuntu31:~/openwrtedgerouter$ ll bin/targets/ramips/mt7621/
-total 9208
-drwxr-xr-x 3 rein rein    4096 Oct  7 22:11 ./
-drwxr-xr-x 3 rein rein    4096 Oct  7 22:07 ../
--rw-r--r-- 1 rein rein    1276 Oct  7 22:07 config.seed
--rw-r--r-- 1 rein rein    2416 Oct  7 22:11 openwrt-edgerouter-upgrade-ramips-mt7621-device-ubnt-edgerouter-x-sfp.manifest
--rw-r--r-- 1 rein rein 3112960 Oct  7 22:11 openwrt-edgerouter-upgrade-ramips-mt7621-ubnt_edgerouter-x-sfp-initramfs-factory.tar
--rw-r--r-- 1 rein rein 3102398 Oct  7 22:11 openwrt-edgerouter-upgrade-ramips-mt7621-ubnt_edgerouter-x-sfp-initramfs-kernel.bin
--rw-r--r-- 1 rein rein 3184839 Oct  7 22:11 openwrt-edgerouter-upgrade-ramips-mt7621-ubnt_edgerouter-x-sfp-squashfs-sysupgrade.tar
-drwxr-xr-x 2 rein rein    4096 Oct  7 22:11 packages/
--rw-r--r-- 1 rein rein     677 Oct  7 22:11 sha256sums
+ll bin/targets/ramips/mt7621/
+total 9196
+drwxr-xr-x 3 rein rein    4096 Oct  9 15:58 ./
+drwxr-xr-x 3 rein rein    4096 Oct  9 15:49 ../
+-rw-r--r-- 1 rein rein    1298 Oct  9 15:49 config.seed
+-rw-r--r-- 1 rein rein    2371 Oct  9 15:58 openwrt-edgerouter-upgrade-ramips-mt7621-device-ubnt-edgerouter-x-sfp.manifest
+-rw-r--r-- 1 rein rein 3112960 Oct  9 15:58 openwrt-edgerouter-upgrade-ramips-mt7621-ubnt_edgerouter-x-sfp-initramfs-factory.tar
+-rw-r--r-- 1 rein rein 3099135 Oct  9 15:58 openwrt-edgerouter-upgrade-ramips-mt7621-ubnt_edgerouter-x-sfp-initramfs-kernel.bin
+-rw-r--r-- 1 rein rein 3174595 Oct  9 15:58 openwrt-edgerouter-upgrade-ramips-mt7621-ubnt_edgerouter-x-sfp-squashfs-sysupgrade.tar
+drwxr-xr-x 2 rein rein    4096 Oct  9 15:58 packages/
+-rw-r--r-- 1 rein rein     677 Oct  9 15:58 sha256sums
+
+cat sha256sums
+e0d19115d51a84961074223115aa722cea98580b39eef1d57747c37263e8bf4c *config.seed
+c7165019de07b7cd3fbaca1341678fabd9f279fd00b44489c5dafcb71cf3cad2 *openwrt-edgerouter-upgrade-ramips-mt7621-device-ubnt-edgerouter-x-sfp.manifest
+4c8af40206a85c0246ea97c67464207c75b8aa36e718a334ed6c3317f4a84ed2 *openwrt-edgerouter-upgrade-ramips-mt7621-ubnt_edgerouter-x-sfp-initramfs-factory.tar
+d2910af5dcaf4c0efcb6560f72715d84e1f060237c44a9b37895480cb39e9bd2 *openwrt-edgerouter-upgrade-ramips-mt7621-ubnt_edgerouter-x-sfp-initramfs-kernel.bin
+d76ee0b794fe77d3ad65b8fa13853c20cbb85f67711587d763be5bb43bf8e48b *openwrt-edgerouter-upgrade-ramips-mt7621-ubnt_edgerouter-x-sfp-squashfs-sysupgrade.tar
+
+
+
 ```
 
