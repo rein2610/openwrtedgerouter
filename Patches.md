@@ -27,7 +27,6 @@ Added compat_version='2.0' to the config for system. This is needed since the sy
 #### `target/linux/ramips/dts/UBNT-ERX-SFP.dts`:  
 Replaced 'UBNT-ERX-SFP' with 'Ubiquiti EdgeRouter X SFP'.  
 Replaced 'ubiquiti,edgerouterx-sfp' with 'ubnt,edgerouter-x-sfp'.  
-Replaced 'ubnt-erx' with 'ubnt,edgerouter-x'.  
 This is needed to match with the naming in recent OpenWrt versions.  
 
 #### `target/linux/ramips/image/mt7621.mk`:
@@ -48,7 +47,6 @@ Replaced 'ubnt-erx' with 'ubnt,edgerouter-x'.
 This is needed to match with the naming in recent OpenWrt versions.
 
 #### `target/linux/ramips/dts/UBNT-ER-e50.dtsi`:
-Replaced 'ubnt-erx' with 'ubnt,edgerouter-x'.  
 Replaced 'ubiquiti,edgerouterx' with 'ubnt,edgerouter-x'.  
 This is needed to match with the naming in recent OpenWrt versions.
 
@@ -82,3 +80,81 @@ Replaced 'ALLOW_BACKUP=1' with 'ALLOW_BACKUP=0'. There is no need to back up the
 
 > [!NOTE]
 > Above pathes are already applied to this repository.
+
+## Script
+```
+Based on ubuntu-20.04.2-live-server-amd64.iso.
+
+cd ~
+git clone https://www.github.com/openwrt/openwrt -b v18.06.9 openwrt-v18.06.9
+
+git clone https://www.github.com/openwrt/openwrt -b v25.12.4 openwrt-v25.12
+
+cd ~
+
+
+
+sudo apt update
+sudo apt install build-essential clang flex bison g++ gawk \
+gcc-multilib g++-multilib gettext git libncurses-dev libssl-dev python2 rsync swig unzip zlib1g-dev file wget
+
+cp ./openwrt-v25.12/package/base-files/files/lib/upgrade/common.sh ./openwrt-v18.06.9/package/base-files/files/lib/upgrade/common.sh
+cp ./openwrt-v25.12/package/base-files/files/lib/upgrade/do_stage2 ./openwrt-v18.06.9/package/base-files/files/lib/upgrade/do_stage2
+cp ./openwrt-v25.12/package/base-files/files/lib/upgrade/fwtool.sh ./openwrt-v18.06.9/package/base-files/files/lib/upgrade/fwtool.sh
+cp ./openwrt-v25.12/package/base-files/files/lib/upgrade/nand.sh ./openwrt-v18.06.9/package/base-files/files/lib/upgrade/nand.sh
+cp ./openwrt-v25.12/package/base-files/files/lib/upgrade/stage2 ./openwrt-v18.06.9/package/base-files/files/lib/upgrade/stage2
+cp ./openwrt-v25.12/package/base-files/files/sbin/sysupgrade ./openwrt-v18.06.9/package/base-files/files/sbin/sysupgrade
+
+cp ./openwrt-v25.12/target/linux/ramips/mt7621/base-files/lib/upgrade/platform.sh ./openwrt-v18.06.9/target/linux/ramips/base-files/lib/upgrade/platform.sh
+
+
+cp ./openwrt-v25.12/target/linux/ramips/mt7621/base-files/lib/upgrade/ubnt.sh ./openwrt-v18.06.9/target/linux/ramips/base-files/lib/upgrade/ubnt.sh 
+
+cp ./openwrt-v25.12/package/base-files/files/lib/upgrade/tar.sh ./openwrt-v18.06.9/target/linux/ramips/base-files/lib/upgrade/tar.sh
+
+cp ./openwrt-v25.12/package/base-files/files/usr/libexec/validate_firmware_image ./openwrt-v18.06.9/package/base-files/files/usr/libexec/validate_firmware_image
+
+
+cd ./openwrt-v18.06.9
+./scripts/feeds update -a
+./scripts/feeds install -a
+make defconfig
+
+
+sed -i ':a;N;$!ba;s/partition@140000.*partition@740000/partition@140000 {\n\t\tlabel = "kernel";\n\t\treg = <0x140000 0x600000>;\n\t};\n\n\tpartition@740000/' target/linux/ramips/dts/UBNT-ER-e50.dtsi
+
+
+
+sed -i 's/set system.@system\[-1].urandom_seed=\x270\x27/set system.@system\[-1].urandom_seed=\x270\x27\n\t\tset system.@system\[-1].compat_version=\x272.0\x27/g' package/base-files/files/bin/config_generate
+
+sed -i 's/UBNT-ERX-SFP/Ubiquiti EdgeRouter X SFP/g' target/linux/ramips/dts/UBNT-ERX-SFP.dts
+sed -i 's/ubiquiti,edgerouterx/ubnt,edgerouter-x/g' target/linux/ramips/dts/UBNT-ERX-SFP.dts
+
+sed -i 's$Device/ubnt-erx$Device/ubnt_edgerouter-x$g' target/linux/ramips/image/mt7621.mk
+sed -i 's$TARGET_DEVICES += ubnt-erx$TARGET_DEVICES += ubnt_edgerouter-x$g' target/linux/ramips/image/mt7621.mk
+
+sed -i 's/ubnt-erx/ubnt,edgerouter-x/g' target/linux/ramips/base-files/etc/board.d/03_gpio_switches
+sed -i 's/ubnt-erx/ubnt,edgerouter-x/g' target/linux/ramips/base-files/etc/board.d/02_network
+
+sed -i 's/ubnt-erx/ubnt,edgerouter-x/g' target/linux/ramips/base-files/lib/upgrade/platform.sh
+
+sed -i 's/ubiquiti,edgerouterx/ubnt,edgerouter-x/g' target/linux/ramips/dts/UBNT-ER-e50.dtsi
+
+sed -i 's/UBNT-ERX/Ubiquiti EdgeRouter X/g' target/linux/ramips/dts/UBNT-ERX.dts
+
+sed -i 's/export SAVE_CONFIG=1/export SAVE_CONFIG=0/g' package/base-files/files/sbin/sysupgrade
+
+sed -i 's/ALLOW_BACKUP=1/ALLOW_BACKUP=0/g' package/base-files/files/usr/libexec/validate_firmware_image
+
+
+sed -i 's/r8077-7cbbab7246/2026-10-10/g' include/version.mk
+sed -i 's$(VERSION_REPO),http://downloads.openwrt.org/releases/18.06.9$(VERSION_REPO),https://github.com/rein2610/openwrtedgerouter$g' include/version.mk
+sed -i 's/(VERSION_DIST),OpenWrt/(VERSION_DIST),OpenWrt Edgerouter Upgrade/g' include/version.mk
+
+scripts/get_source_date_epoch.sh > version.date
+echo 'version1.0' > version
+
+make menuconfig
+
+```
+See `Build Instructions.md` for rest.

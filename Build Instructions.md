@@ -40,16 +40,16 @@ Subtarget (MT7621 based boards)
 Target Profile (Ubiquiti EdgeRouter X) or (Ubiquiti EdgeRouter X-SFP)
 
 Under Global Build settings:  
+- [ ] Cryptographically signed package lists
+- [ ] Enable signature checking in opkg
 - Under Kernel build options:
-    - [ ] Cryptographically signed package lists
-    - [ ] Enable signature checking in opkg
     - [ ] Compile the kernel with debug filesystem enabled  
-    - [ ] Compile the kernel with symbol table information (NEW)  
+    - [ ] Compile the kernel with symbol table information
     - [ ] Compile the kernel with debug information  
-    - [ ] Enable process core dump support (NEW)  
+    - [ ] Enable process core dump support
 - [ ] Enable IPv6 support in packages 
-- [*] Strip unnecessary exports from the kernel image (NEW)
-- [*] Strip unnecessary functions from libraries (NEW)
+- [*] Strip unnecessary exports from the kernel image
+- [*] Strip unnecessary functions from libraries
 
 Under Base system:
  - < > opkg................................................ opkg package manager  ----
@@ -67,11 +67,11 @@ Under Network:
 
 
 
-Alternative: use the provided `.config`
+### Alternative: use the provided `.config.edgerouter-x` or `.config.edgerouter-x-sfp`
 
 ```
-git restore .config
-
+cp .config.edgerouter-x .config
+cp .config.edgerouter-x-sfp .config
 ```
 
 # Build
@@ -82,7 +82,7 @@ make -j$(nproc)
 
 # Output Ubiquiti EdgeRouter X (ER-X)
 ```
- ll bin/targets/ramips/mt7621/
+ll bin/targets/ramips/mt7621/
 total 9196
 drwxr-xr-x 3 rein rein    4096 Oct  9 18:05 ./
 drwxr-xr-x 3 rein rein    4096 Oct  9 18:01 ../
@@ -100,6 +100,8 @@ c7165019de07b7cd3fbaca1341678fabd9f279fd00b44489c5dafcb71cf3cad2 *openwrt-edgero
 e98d75272e7526cabf2fc8a79ba4b40d9599bc2c8e5471d3ceb1f7fc819b70e1 *openwrt-edgerouter-upgrade-ramips-mt7621-ubnt_edgerouter-x-initramfs-factory.tar
 5ea566a6513e848a70d3ebf0d04ee171c6050f8fc41c85e9765a875ffda4e81d *openwrt-edgerouter-upgrade-ramips-mt7621-ubnt_edgerouter-x-initramfs-kernel.bin
 f7ffac7569a0bac54f10fd7289149b4de381a674ddbb9665a3f5f01ca01d8d05 *openwrt-edgerouter-upgrade-ramips-mt7621-ubnt_edgerouter-x-squashfs-sysupgrade.tar
+
+
 
 ```
 
