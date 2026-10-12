@@ -59,10 +59,10 @@ Replaced '(VERSION_REPO),http://downloads.openwrt.org/releases/18.06.9' with '(V
 Replaced '(VERSION_DIST),OpenWrt' with '(VERSION_DIST),OpenWrt Edgerouter Upgrade'.
 
 #### `version.date`
-scripts/get_source_date_epoch.sh > version.date
+`scripts/get_source_date_epoch.sh > version.date`
 
 #### `version`
-echo 'version1.0' > version
+`echo 'version1.0' > version`
 
 
 
