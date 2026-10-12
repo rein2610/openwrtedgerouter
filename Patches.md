@@ -50,8 +50,21 @@ This is needed to match with the naming in recent OpenWrt versions.
 Replaced 'ubiquiti,edgerouterx' with 'ubnt,edgerouter-x'.  
 This is needed to match with the naming in recent OpenWrt versions.
 
-### `target/linux/ramips/dts/UBNT-ERX.dts`:
+#### `target/linux/ramips/dts/UBNT-ERX.dts`:
 Replaced 'UBNT-ERX' with 'Ubiquiti EdgeRouter X'.
+
+#### `include/version.mk`
+Replaced 'r8077-7cbbab7246' with '2026-10-10'.  
+Replaced '(VERSION_REPO),http://downloads.openwrt.org/releases/18.06.9' with '(VERSION_REPO),https://github.com/rein2610/openwrtedgerouter'.  
+Replaced '(VERSION_DIST),OpenWrt' with '(VERSION_DIST),OpenWrt Edgerouter Upgrade'.
+
+#### `version.date`
+scripts/get_source_date_epoch.sh > version.date
+
+#### `version`
+echo 'version1.0' > version
+
+
 
 ### To support the newer sysupgrade format of OpenWrt v24 and higher the following files are borrowed from OpenWrt v25.12.
 ```
@@ -70,7 +83,7 @@ cp ./openwrt-v25.12/package/base-files/files/lib/upgrade/tar.sh ./openwrt-v18.06
 
 cp ./openwrt-v25.12/package/base-files/files/usr/libexec/validate_firmware_image ./openwrt-v18.06.9/package/base-files/files/usr/libexec/validate_firmware_image
 ```
-After coping the following files are updated:
+After coping, the following files are updated:
 #### `package/base-files/files/sbin/sysupgrade`:
 Replaced 'export SAVE_CONFIG=1' with 'export SAVE_CONFIG=0'
 Since the new firmware config (OpenWrt v24 and higher) is not compatible with v18, keeping the config files results in a improper network configuration that does not allow to connect. Therefore keeping the config files is disabled to prevent misconfiguration. Fixing this misconfiguration would require TFTP recovery via the reset button, which is rather complicated!
@@ -81,23 +94,27 @@ Replaced 'ALLOW_BACKUP=1' with 'ALLOW_BACKUP=0'. There is no need to back up the
 > [!NOTE]
 > Above pathes are already applied to this repository.
 
-## Script
-```
+## Scripts
 Based on ubuntu-20.04.2-live-server-amd64.iso.
+
+```
+sudo apt update
+
+```
+```
 
 cd ~
 git clone https://www.github.com/openwrt/openwrt -b v18.06.9 openwrt-v18.06.9
 
 git clone https://www.github.com/openwrt/openwrt -b v25.12.4 openwrt-v25.12
 
-cd ~
-
-
-
-sudo apt update
+```
+```
 sudo apt install build-essential clang flex bison g++ gawk \
 gcc-multilib g++-multilib gettext git libncurses-dev libssl-dev python2 rsync swig unzip zlib1g-dev file wget
 
+```
+```
 cp ./openwrt-v25.12/package/base-files/files/lib/upgrade/common.sh ./openwrt-v18.06.9/package/base-files/files/lib/upgrade/common.sh
 cp ./openwrt-v25.12/package/base-files/files/lib/upgrade/do_stage2 ./openwrt-v18.06.9/package/base-files/files/lib/upgrade/do_stage2
 cp ./openwrt-v25.12/package/base-files/files/lib/upgrade/fwtool.sh ./openwrt-v18.06.9/package/base-files/files/lib/upgrade/fwtool.sh
@@ -154,6 +171,8 @@ sed -i 's/(VERSION_DIST),OpenWrt/(VERSION_DIST),OpenWrt Edgerouter Upgrade/g' in
 scripts/get_source_date_epoch.sh > version.date
 echo 'version1.0' > version
 
+```
+```
 make menuconfig
 
 ```
