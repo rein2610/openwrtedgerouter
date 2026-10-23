@@ -5,7 +5,7 @@ This version of OpenWrt is based on OpenWrt V18.06.9 with unnecessary functions 
 # 3MiB limit
 In order not to exceed the 3MiB limit, this version is based on OpenWrt V18.06.9. Any higher version results in exceeding the 3MiB limit when Luci is included. The purpose of is this build is to make the installation of OpenWrt as easy as possible without the need for a USB to serial adapter. SSH is supported by this build, however it requires your SSH client to support for older Hostkey algorithm RSA/sha1.
 
-See [Build Instructions.md](#../Build%20Instructions.md)
+See [Build Instructions.md](../#Build%20Instructions.md)
 
 # Automatic conversion to 6MiB partition
 This is achieved by updating the dts for Ubiquiti EdgeRouter X (ER-X) and Ubiquiti EdgeRouter X-SFP (ER-X-SFP).
@@ -52,6 +52,7 @@ This is needed to match with the naming in recent OpenWrt versions.
 
 #### `target/linux/ramips/dts/UBNT-ERX.dts`:
 Replaced 'UBNT-ERX' with 'Ubiquiti EdgeRouter X'.
+This is needed to match with the naming in recent OpenWrt versions.
 
 #### `include/version.mk`
 Replaced 'r8077-7cbbab7246' with '2026-10-10'.  
@@ -176,4 +177,4 @@ echo 'version1.0' > version
 make menuconfig
 
 ```
-See `Build Instructions.md` for rest.
+See [Build Instructions.md](../#Build%20Instructions.md) for the rest...
