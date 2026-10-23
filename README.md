@@ -25,7 +25,7 @@ This version is just meant to make it possible to upgrade to a recent version of
 ### Prerequisite
 - EdgeOS installed (https://www.ui.com/download/software/er-x). For recovery see (https://help.uisp.com/hc/en-us/articles/22591244564887-EdgeRouter-TFTP-Recovery). Tested with v2.0.6 and v3.0.1.
 - https://github.com/rein2610/openwrtedgerouter/blob/edgerouterupgrade/bin/targets/ramips/mt7621/openwrt-edgerouter-upgrade-ramips-mt7621-ubnt_edgerouter-x-sfp-initramfs-factory.tar downloaded on your computer.
-- https://downloads.openwrt.org/releases/25.12.2/targets/ramips/mt7621/openwrt-25.12.2-ramips-mt7621-ubnt_edgerouter-x-squashfs-sysupgrade.bin (or higher) downloaded on your computer.
+- https://downloads.openwrt.org/releases/25.12.2/targets/ramips/mt7621/openwrt-25.12.2-ramips-mt7621-ubnt_edgerouter-x-sfp-squashfs-sysupgrade.bin (or higher) downloaded on your computer.
 
 ### Installation
 - Connect your computer to **eth0** port of the Ubiquiti EdgeRouter X (ER-X-SFP) and make sure your computer's ip address in the 192.168.1.x/24 subnet.
@@ -42,7 +42,7 @@ Wait a minute and upgrade to version 24 or higher
 - Go to http://192.168.1.1/cgi-bin/luci//admin/.
 - Log in (without password).
 - Go to System / Backup / Flash Firmware.
-- Flash new firmware image: `openwrt-25.12.2-ramips-mt7621-ubnt_edgerouter-x-squashfs-sysupgrade.bin` (or higher).
+- Flash new firmware image: `openwrt-25.12.2-ramips-mt7621-ubnt_edgerouter-x-sfp-squashfs-sysupgrade.bin` (or higher).
 - Keep settings is enabled by default and will not have any effect, so no need to uncheck.
 - Verify the checksum and file size listed, compare them with the original file to ensure data integrity.
 - Proceed.
